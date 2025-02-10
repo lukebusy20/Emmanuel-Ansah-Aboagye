@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesignWave GrapHix</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #053d34;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff7f50;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(128, 36, 36, 0.5), rgba(0,0,0,0.5)), url('hero.jpg');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: rgb(255, 251, 251);
+            padding-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 50px 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 1001;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: white;
+            max-width: 800px;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* About Section */
+        .about-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    .profile-section {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin: 30px 0;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #053d34;
+    }
+
+    .tagline {
+        color: #666;
+        font-size: 1.1em;
+        margin-top: 10px;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+    }
+
+    .skill-item {
+        text-align: center;
+        padding: 25px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        transition: transform 0.3s;
+    }
+
+    .skill-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .skill-icon {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+
+
+        /* Contact Section */
+        .contact {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #ff7f50;
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff6347;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#portfolio">PORTFOLIO</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div>
+            <h1>Welcome to DesignWave Graphix</h1>
+            <p>Turning ideas into visual experiences</p>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="portfolio-grid">
+
+            <!-- Add your portfolio items here -->
+            <div class="portfolio-item">
+                <img src="Elecricals.jpg" alt="Project 1">
+            </div>
+            <div class="portfolio-item">
+                <img src="Weekly.jpg" alt="Project 2">
+            </div>
+            <div class="portfolio-item">
+                <img src="IMAGE.jpg" alt="Project 3">
+            </div>
+            <div class="portfolio-item">
+                <img src="INVITE 1.jpg" alt="Project 3">
+            </div>
+            <div class="portfolio-item">
+                <img src="ID CARD.jpg" alt="Project 3">
+            </div>
+            <div class="portfolio-item">
+                <img src="regis.jpg" alt="Project 3">
+            </div>
+            <!-- Add more items as needed -->
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>ABOUT ME</h2>
+                <div class="profile-section">
+                    <img src="f.png" alt="Emmanuel" class="profile-img">
+                    <div class="profile-text">
+                        <h3>Emmanuel Aboagye Ansah</h3>
+                        <p class="tagline">Brand Designer</p>
+                    </div>
+                </div>
+                
+                <div class="bio">
+                    <p>With not less than 3years of experience in the creative industry, I specialize in transforming complex ideas into compelling visual narratives. My work spans brand identity, digital design, and print media, always focused on creating meaningful connections between brands and their audiences.</p>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">🎨</div>
+                            <h4>Brand Identity</h4>
+                            <p>Crafting memorable visual systems that resonate</p>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">✏️</div>
+                            <h4>Digital Illustration</h4>
+                            <p>Bringing concepts to life through digital art</p>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">🖥️</div>
+                            <h4>UI/UX Design</h4>
+                            <p>Creating intuitive digital experiences</p>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>CONTACT ME </h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <textarea rows="5" placeholder="Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-image" src="" alt="">
+            <div id="modal-description"></div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modal = document.querySelector('.modal');
+        const modalImage = document.getElementById('modal-image');
+        const modalDescription = document.getElementById('modal-description');
+        const closeModal = document.querySelector('.close');
+
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.addEventListener('click', () => {
+                modal.style.display = 'block';
+                modalImage.src = item.querySelector('img').src;
+                modalDescription.textContent = item.querySelector('img').alt;
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
